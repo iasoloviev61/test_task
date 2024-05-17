@@ -77,7 +77,7 @@ systemctl start zabbix-agent.service
  - добавить хост в группу
 
  - назначиьт хосту шаблоны "Openstack by http", "Openstack Nova by http"
- ! [Добавиь шаблон] (template_openstack.png)
+   ![Добавиь шаблон](template_openstack.png)
 
  - внести переменные для авторизации в макрос хоста
 
@@ -86,7 +86,7 @@ systemctl start zabbix-agent.service
     {$OPENSTACK.APP.CRED.ID}
     {$OPENSTACK.APP.CRED.SECRET}
     ```
-! [Добавиь данные макроса] (macros.png) 
+![Добавиь данные макроса](macros.png) 
 
 
 6. добавление метрик
