@@ -1,7 +1,7 @@
 # Тестовое задание для A2CODE
 
-- [Contribution guidelines for this project](openstack-services.md)
+- [взаимодействие основных компонентов платформы](openstack-services.md)
 
-- [Contribution guidelines for this project](instance-creating.md)
+- [инструкция по созданию нового инстанса](instance-creating.md)
 
-- [Contribution guidelines for this project](zabbix-info.md)
+- [нструкция по добавлению и выведению хостов мониторинга Zabbix](zabbix-info.md)
