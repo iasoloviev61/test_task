@@ -2,7 +2,7 @@
 
 ## Схема взаимодействия сервисов Openstack
 
-! [Схема взаимодействия сервисов Openstack] (./scheme.png)
+! [Схема взаимодействия сервисов Openstack] ([./scheme.png](https://github.com/iasoloviev61/test_task/blob/main/scheme.png?raw=true))
 
 ## Основные сервисы Openstack:
 
