@@ -3,11 +3,13 @@
 Подготовить пошаговую обезличенную  инструкцию по добавлению и выведению хостов мониторинга Zabbix, добавление метрик. 
 
 
-## Добавление узла мониторинга zabbix
+### Добавление узла мониторинга zabbix
 
 1. **Импорт Zabbix appliance**
 
+```
 openstack image create --disk-format qcow2 --file zabbix_appliance-6.4.14.qcow2 zabbix_appliance-6.4.14
+```
 
 2. **Создать инстанса из этого appliance**
 
@@ -113,7 +115,7 @@ openstack server delete  zabbix-server
 ```
 
 
-## Описать основные подходы автоматизации.
+### Описать основные подходы автоматизации.
 
 1. Импорт имиджа и создание сервера выполняется модулями ansible collection - openstack 
 
