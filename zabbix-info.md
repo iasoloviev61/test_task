@@ -5,11 +5,11 @@
 
 ## Добавление узла мониторинга zabbix
 
-1. Импорт Zabbix appliance
+1. **Импорт Zabbix appliance**
 
 openstack image create --disk-format qcow2 --file zabbix_appliance-6.4.14.qcow2 zabbix_appliance-6.4.14
 
-2. Создать инстанса из этого appliance
+2. **Создать инстанса из этого appliance**
 
 ```
 openstack server create --image zabbix_appliance-6.4.14\
@@ -19,13 +19,13 @@ openstack server create --image zabbix_appliance-6.4.14\
  zabbix-server
 ```
 
-3. Логин в уставновленный Zabbix
+3. **Логин в уставновленный Zabbix**
 
-4. Импорт шаблона Openstack
+4. **Импорт шаблона Openstack**
 
 ## Настройка кластера openstack и клиента мониторинга
 
-1. Создать проект, пользователя, назначить роль пользователю (для простоты будет роль admin)
+1. **Создать проект, пользователя, назначить роль пользователю (для простоты будет роль admin)**
 
 ```
 openstack project create zabbix
@@ -33,7 +33,7 @@ openstack user create --project zabbix --password zabbix123 zabbix-monitoring
 openstack role add --user zabbix-monitoring --project zabbix admin
 ```
 
-2. Создать учетные данные для zabbix
+2. **Создать учетные данные для zabbix**
 
 ```
 openstack application credential create --description "Application credential for Zabbix monitoring" zabbix-app
@@ -53,14 +53,14 @@ openstack application credential create --description "Application credential fo
 +--------------+----------------------------------------------------------------------------------------+
 ```
 
-3. Установка агента на хосты контроллеров openstack
+3. **Установка агента zabbix на хосты  openstack**
 
 ```
 rpm -Uvh https://repo.zabbix.com/zabbix/6.4/rhel/9/x86_64/zabbix-release-6.4-1.el9.noarch.rpm
 dnf install zabbix-agent
 ```
 
-4. Настройка агнета - добавиь ip адрес сервера мониторнга в конфиг файл
+4. **Настройка агнета - добавиь ip адрес сервера мониторнга в конфиг файл**
 
 ```
 cat /etc/zabbix/zabbix_agentd.conf
@@ -68,7 +68,7 @@ Server=you_zabbix_server_ip
 
 systemctl start zabbix-agent.service
 ```
-5. Добавить хост openstack cluster в zabbix
+5. **Добавить хост openstack cluster в zabbix**
 
  - В дашборде zabbix
 
@@ -89,7 +89,7 @@ systemctl start zabbix-agent.service
 ![Добавиь данные макроса](macros.png) 
 
 
-6. добавление метрик
+6. **Добавление метрик**
 
 Необходимо перейти в:
 
@@ -98,11 +98,15 @@ systemctl start zabbix-agent.service
 Отобразится диалог создания элемента данных.
 Далее вводим информацию о метрике(элемента данных).
 
-7. Удаление хоста из zabbix
+7. **Удаление хоста из zabbix**
 
 Monitoring -> Host -> your-host -> Configuration -> Delete
 
-8. Удаление хоста мониторинга zabbix
+```
+systemctl stop zabbix-agent
+```
+
+8. **Удаление хоста мониторинга zabbix**
 
 ```
 openstack server delete  zabbix-server
